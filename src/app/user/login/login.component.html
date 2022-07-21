@@ -1,0 +1,32 @@
+<app-user></app-user>
+<mat-card class="my-card">
+    <form class="my-form" (submit)="onSubmit(postForm)" #postForm="ngForm">
+        <mat-card-title>LOGIN PAGE</mat-card-title>
+        <mat-card-content>
+        <p>
+        <mat-form-field appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input  matInput placeholder="Email" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" ngModel>
+        </mat-form-field>
+        </p>
+        </mat-card-content>
+        <mat-card-content>
+        <p>
+        <mat-form-field appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input  matInput  placeholder="Password"  name="password" minlength="4" maxlength="20" ngModel>
+        </mat-form-field>
+        </p>
+        </mat-card-content>
+        <mat-card-action>
+        <p>
+            <button mat-raised-button color="primary" type="submit">Login</button>
+        </p>
+        </mat-card-action>
+     </form>
+</mat-card>
+
+<div class="bar error" *ngIf="formError">
+    <h1>An Error Occurred!</h1>
+    <p>{{error}}<p>
+</div>

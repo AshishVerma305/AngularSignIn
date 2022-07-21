@@ -1,0 +1,58 @@
+<app-user></app-user>
+<form (submit)="onSearch(userData)">
+    <mat-form-field class="search-form-field">
+      <input
+        type="text"
+        matInput
+        name="searchInput"
+        [matAutocomplete]="auto"
+        [formControl]="myControl"
+        placeholder="Search"
+        #userData
+      />
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+        >
+          {{ option.email }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">
+      Search
+    </button>
+  </form>
+<div *ngIf="searchViewActive">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef> FullName </th>
+      <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> UserName </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef> Mobile </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

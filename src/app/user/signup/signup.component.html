@@ -1,0 +1,66 @@
+<app-user></app-user>
+<mat-card class="my-card">
+<mat-card-content>
+    <form class="my-form" (submit)="signUp(signUpForm)" #signUpForm="ngForm">
+        <mat-card-title>SIGNUP PAGE</mat-card-title>
+        <mat-card-content>
+        <p>
+            <mat-form-field class="legacy">
+                <mat-label>Full Name</mat-label>
+                <input  matInput  placeholder="Full name"  name="fname"  ngModel required>
+            </mat-form-field>
+        </p>
+        </mat-card-content>
+        <mat-card-content>
+        <p>
+            <mat-form-field class="legacy">
+                <mat-label>User Name</mat-label>
+                <input  matInput  placeholder="UserName" name="username" ngModel required>
+            </mat-form-field>
+        </p>
+        </mat-card-content>
+        <mat-card-content>
+        <p>
+            <mat-form-field class="legacy">
+                <mat-label>Address</mat-label>
+                <input  matInput  placeholder="Address" name="address" ngModel required>
+            </mat-form-field>
+        </p>
+        </mat-card-content>
+        <mat-card-content>
+            <p>
+                <mat-form-field class="legacy">
+                    <mat-label>Mobile Number</mat-label>
+                    <input  matInput  placeholder="Mobile Number" name="mobile" ngModel pattern="[789][0-9]{9}" required>
+                </mat-form-field>
+            </p>
+            </mat-card-content>
+        <mat-card-content>
+        <p>
+            <mat-form-field class="legacy">
+                <mat-label>Email</mat-label>
+                <input  matInput  placeholder="Email" name="email" ngModel pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+            </mat-form-field>
+        </p>
+        </mat-card-content>
+    <mat-card-content>
+        <p>
+            <mat-form-field class="legacy">
+                <mat-label>Password</mat-label>
+                <input  matInput  placeholder="Password"  name="password" minlength="4" maxlength="20" ngModel required>
+            </mat-form-field>
+        </p>
+    </mat-card-content>
+    <mat-card-action>
+        <p>
+            <button mat-raised-button color="primary" type="submit">Register</button>
+        </p>
+    </mat-card-action>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<div class="bar error" *ngIf="formError">
+    <h1>An Error Occurred!</h1>
+    <p>{{error}}<p>
+</div>
