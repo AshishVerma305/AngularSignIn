@@ -43,6 +43,7 @@ export class UserDetailComponent implements OnInit{
     {
         console.log(err);
     });
+
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(""),
       map(value => (typeof value === "string" ? value : value.email)),

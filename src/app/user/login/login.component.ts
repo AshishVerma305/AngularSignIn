@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
     this.formError=false;
     if(this.authService.isLoggedIn())
     {
-      console.log("userDetails page");
-      this.router.navigate(['/userDetails']);
+      console.log("userProfile page");
+      this.router.navigate(['/userProfile']);
     }
   }
   onSubmit(form:NgForm)
@@ -40,9 +40,8 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(post).subscribe(data=>
     {
       this.authService.status.next(true);
-     console.log("---------------data",data);
      this.authService.setToken(data['token']);
-     this.router.navigateByUrl('/userDetails');
+      this.router.navigate(['/userProfile']);
     },err=>
     {
       this.error=err.error.message;

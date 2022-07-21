@@ -1,0 +1,35 @@
+<app-user></app-user>
+
+<div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+</div>
+<table *ngIf="userDetails" class="table-fill">
+  <thead>
+      <tr>
+          <th colspan="2" class="text-center">User Profile</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr class="editable-section">
+        <td>Name</td>
+        <td [hidden]="showEdit">{{userDetails.fullName}} &nbsp;&nbsp; <button mat-button color="warn" (click)="showEdit = !showEdit">Edit</button> </td>
+        <td [hidden]="!showEdit"><input type="text" name="fullname" #fullname="ngModel" [(ngModel)]="userDetails.fullName"/> &nbsp;&nbsp; <button mat-button color="primary" (click)="showEdit = !showEdit; updateProfile()">Save</button> </td>
+    </tr>
+      <tr>
+          <td>Email</td>
+          <td>{{userDetails.email}}</td>
+      </tr>
+      <tr>
+          <td>Username</td>
+          <td>{{userDetails.username}}</td>
+      </tr>
+      <tr>
+          <td>Address</td>
+          <td>{{userDetails.address}}</td>
+      </tr>
+      <tr>
+          <td>Mobile</td>
+          <td>{{userDetails.mobile}}</td>
+      </tr>
+  </tbody>
+</table>

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './user/auth/auth.guard';
 import { UserDetailComponent } from './user/userdetails/userdetails.component';
+import { UserProfileComponent } from './user/userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserDetailComponent } from './user/userdetails/userdetails.component';
     UserComponent,
     LoginComponent,
     SignupComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

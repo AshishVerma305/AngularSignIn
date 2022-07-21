@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
@@ -23,6 +23,17 @@ export class AuthService{
     setToken(token: string) {
         localStorage.setItem('token', token);
     }
+    getUserProfile(){
+        return this.http.get("http://localhost:8000/api/userProfile",{
+            headers: new HttpHeaders({'Authorization':'Bearer ' +this.getToken()})
+        })
+    }
+
+    updateUserProfile(user) {
+        return this.http.put("http://localhost:8000/api/userProfile", user,{
+            headers: new HttpHeaders({'Authorization':'Bearer ' +this.getToken()})
+        });
+      }
     
     getToken() {
     return localStorage.getItem('token');

@@ -4,6 +4,8 @@
        <span class="example-spacer"></span>
        <a mat-button *ngIf=(!loginStatus) routerLink="/register">Register</a>
        <a mat-button *ngIf=(!loginStatus) routerLink="/login">Login</a>
+       <a mat-button *ngIf=(loginStatus) routerLink="/userProfile">UserProfile</a>
+       <a mat-button *ngIf=(loginStatus) routerLink="/userDetails">UserDetails</a>
        <a mat-button *ngIf=(loginStatus) (click)="onLogout()">Logout</a>
     </mat-toolbar-row>
  </mat-toolbar>
